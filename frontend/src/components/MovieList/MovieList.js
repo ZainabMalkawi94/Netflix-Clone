@@ -1,4 +1,4 @@
-import Movie from './Movie';
+import Movie from '../Movie/Movie';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
