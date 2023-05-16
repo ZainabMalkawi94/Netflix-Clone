@@ -4,6 +4,7 @@ id SERIAL PRIMARY KEY ,
 title varchar(255),
 releasedate varchar(255),
 posterpath varchar(255),
-overview varchar(1000)
+overview varchar(1000), 
+comment varchar(1000)
 );
 

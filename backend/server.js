@@ -14,12 +14,13 @@ const moviesKey = process.env.API_KEY;
 const port = process.env.PORT;
 
 let result = [];
-function Movies(id, title, releaseDate, posterPath, overview) {
+function Movies(id, title, releaseDate, posterPath, overview , comment) {
     this.id = id;
     this.title = title;
     this.releaseDate = releaseDate;
     this.posterPath =`https://image.tmdb.org/t/p/w500/${posterPath}`;
     this.overview = overview;
+    this.comment = comment;
     // result.push(this);
 }
 //routes
@@ -118,8 +119,8 @@ function handleGetMovies(req, res) {
 
 function addMovieHandler(req, res) {
     const movie = req.body;
-    const sql = `INSERT into topmovies (title, releasedate, posterpath, overview) values ($1,$2,$3,$4) RETURNING *;`;
-    const values = [movie.title, movie.release_date, movie.poster_path, movie.overview];
+    const sql = `INSERT into topmovies (title, releasedate, posterpath, overview, comment) values ($1,$2,$3,$4,$5) RETURNING *;`;
+    const values = [movie.title, movie.release_date, movie.poster_path, movie.overview, movie.comment];
     client.query(sql, values).then((data) => {
         res.send(data.rows);
         //res.send("Adding succ");
