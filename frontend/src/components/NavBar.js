@@ -9,7 +9,7 @@ function NavBar() {
                     <Navbar.Brand href="#home">Netflix Clone application</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/favlist">FavList</Nav.Link>
+                        <Nav.Link href="/FavList">FavList</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import ModalMovie from './ModalMovie';
+import ModalMovie from '../Models/ModelMovie';
 function Movie(props) {
     const [show, setShow] = useState(false);
     const [clickedMovie, setClickedMovie] = useState({});

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MovieList from "./MovieList";
+import MovieList from "./MovieList/MovieList";
 function Home() {
 
     const [moviesData, setMoviesData] = useState([]);
@@ -21,3 +21,13 @@ function Home() {
     )
 }
 export default Home;
+
+
+
+
+
+
+
+
+
+

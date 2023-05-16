@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-// import FavList from './components/FavList';
+import FavList from './components/FavList';
 import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/favlist" element={<FavList />} /> */}
+        <Route path="/FavList" element={<FavList />} />
       </Routes>
     </>
   );

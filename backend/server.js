@@ -132,15 +132,20 @@ function addMovieHandler(req, res) {
 function updateMoviesHandler(req, res) {
     const id = req.params.id;
     const sql = `update topmovies set title=$1,releasedate=$2,posterpath=$3,overview=$4 where id=${id} returning *`;
-    const values = [req.body.title, req.body.releasedate, req.body.posterpath, req.body.overview];
+    const values = [req.body.title, req.body.releaseDate, req.body.posterPath, req.body.overview];
     client.query(sql, values)
         .then((data) => {
-            res.status(200).send(data.rows);
+            const newsql = `select * from topmovies;`
+            console.log(newsql);
+        client.query(newsql).then((data) => {
+            res.status(200).json(data.rows);
+        })
         })
         .catch((error) => {
             res.status(500).send(error, "error");
         });
 }
+
 
 function deleteMoviesHandler(req, res) {
     // http://localhost:3001/DELETE/anyNumber(related to id)
