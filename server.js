@@ -106,7 +106,8 @@ function handleGetMovies(req, res) {
                     item.title,
                     item.releasedate,
                     item.posterpath,
-                    item.overview
+                    item.overview,
+                    item.comment
                 )
                 return singleMovie;
             });
@@ -131,8 +132,8 @@ function addMovieHandler(req, res) {
 }
 function updateMoviesHandler(req, res) {
     const id = req.params.id;
-    const sql = `update topmovies set title=$1,releasedate=$2,posterpath=$3,overview=$4 where id=${id} returning *`;
-    const values = [req.body.title, req.body.releasedate, req.body.posterpath, req.body.overview];
+    const sql = `update topmovies set title=$1,releasedate=$2,posterpath=$3,overview=$4, comment=$5 where id=${id} returning *`;
+    const values = [req.body.title, req.body.releasedate, req.body.posterpath, req.body.overview, req.body.comment];
     client.query(sql, values)
         .then((data) => {
             const newsql = `select * from topmovies;`
@@ -152,12 +153,22 @@ function deleteMoviesHandler(req, res) {
     const sql = `delete from topmovies where id = ${movieId}`;
     client.query(sql)
         .then((data) => {
-            if (data)
-                res.status(202).send('deleted');
+            const newsql = `select * from topmovies;`
+        client.query(newsql).then((data) => {
+            res.status(200).json(data.rows);
+        })
         })
         .catch((error) => {
             res.status(500).send(error, "error");
         });
+        
+        // {
+        //     if (data)
+        //         res.status(202).send('deleted');
+        // })
+        // .catch((error) => {
+        //     res.status(500).send(error, "error");
+        // });
 }
 
 function handleGetMovie(req, res) {

@@ -19,7 +19,7 @@ function ModalMovie(props) {
       };
       console.log(data);
       await axios.post(serverUrl, data);
-      // props.handleClose();
+      props.handleClose();
       // props.onMovieAdded();
     } catch (error) {
       console.log(error);
