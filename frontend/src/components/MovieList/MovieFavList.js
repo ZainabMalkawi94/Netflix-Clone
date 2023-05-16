@@ -9,10 +9,10 @@ function MovieFavList(props) {
 
     return (
         <>
-            <Row xs={1} md={4} className="g-4">
+            <Row xs={1} md={5} className="g-4">
                 {props.dataList.map((item, idx) => (
                     <Col key={idx}>
-                        <MovieFav key={idx} id = {item.id} title={item.title} poster_path={item.posterPath} release_date={item.releaseDate} overview={item.overview} takeNewArr={takeNewArr}/>
+                        <MovieFav key={idx} id = {item.id} title={item.title} posterpath={item.posterpath} releasedate={item.releasedate} overview={item.overview} takeNewArr={takeNewArr}/>
                     </Col>
                 ))}
             </Row>

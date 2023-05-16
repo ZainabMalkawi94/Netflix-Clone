@@ -28,11 +28,11 @@ const takeNewArrFromChild = (arr) => {
   return (
     <>
       <Card>
-        <Card.Img variant="top" src={props.poster_path} />
+        <Card.Img variant="top" src={props.posterpath} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
           <Card.Text className="text">
-            <div className="release-date">Release date: {props.release_date}</div>
+            <div className="release-date">Release date: {props.releasedate}</div>
             <div className="overview">Overview: {props.overview}</div>
           </Card.Text>
           <Button variant="success" onClick={() => { handleupdate(props) }}>Update</Button>

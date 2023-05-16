@@ -16,11 +16,11 @@ function Movie(props) {
     return (
         <>
             <Card>
-                <Card.Img variant="top" src={props.posterPath} />
+                <Card.Img variant="top" src={props.posterpath} />
                 <Card.Body>
                     <Card.Title>{props.title}</Card.Title>
                     <Card.Text className="text">
-                        <div className="release-date">Release date: {props.releaseDate}</div>
+                        <div className="release-date">Release date: {props.releasedate}</div>
                         <div className="overview">Overview: {props.overview}</div>
                     </Card.Text>
                     <Button variant="primary" onClick={() => { handleshow(props) }}>Add to the favorite list</Button>

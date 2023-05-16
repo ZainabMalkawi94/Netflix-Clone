@@ -12,8 +12,8 @@ function ModalMovie(props) {
       console.log(serverUrl);
       const data = {
         title: props.dataModal.title,
-        poster_path: props.dataModal.posterPath,
-        release_date:props.dataModal.releaseDate,
+        posterpath: props.dataModal.posterpath,
+        releasedate:props.dataModal.releasedate,
         overview: props.dataModal.overview,
         comment: comment
       };
@@ -32,7 +32,7 @@ function ModalMovie(props) {
           <Modal.Title>{props.dataModal.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={props.dataModal.posterPath} rounded width='100%' />
+          <Image src={props.dataModal.posterpath} rounded width='100%' />
           <Form.Control
             type="text"
             placeholder="Add your comment"

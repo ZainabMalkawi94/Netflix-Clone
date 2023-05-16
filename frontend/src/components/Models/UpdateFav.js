@@ -9,8 +9,8 @@ function UpdateFav(props) {
         e.preventDefault();
         const obj = {
             title: e.target.title.value,
-            posterPath: e.target.image.value,
-            releaseDate: e.target.releaseDate.value,
+            posterpath: e.target.posterpath.value,
+            releasedate: e.target.releasedate.value,
             overview: e.target.overview.value
         }
         console.log(props.item.id);
@@ -39,9 +39,9 @@ function UpdateFav(props) {
                         <Form.Group>
                             <Form.Label>poster Path</Form.Label>
                             <Form.Control
-                                name="image"
+                                name="posterpath"
                                 type="text"
-                                defaultValue={props.item.posterPath}
+                                defaultValue={props.item.posterpath}
                             />
                         </Form.Group>
                         <Form.Group>
@@ -49,8 +49,8 @@ function UpdateFav(props) {
                             <InputGroup hasValidation>
                                 <Form.Control
                                     type="text"
-                                    name="releaseDate"
-                                    defaultValue={props.item.releaseDate}
+                                    name="releasedate"
+                                    defaultValue={props.item.releasedate}
                                 />
                             </InputGroup>
                         </Form.Group>

@@ -14,11 +14,11 @@ const moviesKey = process.env.API_KEY;
 const port = process.env.PORT;
 
 let result = [];
-function Movies(id, title, releaseDate, posterPath, overview , comment) {
+function Movies(id, title, releasedate, posterpath, overview , comment) {
     this.id = id;
     this.title = title;
-    this.releaseDate = releaseDate;
-    this.posterPath =`https://image.tmdb.org/t/p/w500/${posterPath}`;
+    this.releasedate = releasedate;
+    this.posterpath =`https://image.tmdb.org/t/p/w500${posterpath}`;
     this.overview = overview;
     this.comment = comment;
     // result.push(this);
@@ -40,7 +40,7 @@ app.get('/getMovie/:id', handleGetMovie);
 // handlers
 function handleHome(req, res) {
     // console.log("any thing");
-    let movie = new Movies(data.id, data.title, data.release_date, data.poster_path, data.overview);
+    let movie = new Movies(data.id, data.title, data.releasedate, data.posterpath, data.overview);
     res.json(movie);
     // res.send({msg:'welcome to home page'})
 }
@@ -120,7 +120,7 @@ function handleGetMovies(req, res) {
 function addMovieHandler(req, res) {
     const movie = req.body;
     const sql = `INSERT into topmovies (title, releasedate, posterpath, overview, comment) values ($1,$2,$3,$4,$5) RETURNING *;`;
-    const values = [movie.title, movie.release_date, movie.poster_path, movie.overview, movie.comment];
+    const values = [movie.title, movie.releasedate, movie.posterpath, movie.overview, movie.comment];
     client.query(sql, values).then((data) => {
         res.send(data.rows);
         //res.send("Adding succ");
@@ -132,11 +132,10 @@ function addMovieHandler(req, res) {
 function updateMoviesHandler(req, res) {
     const id = req.params.id;
     const sql = `update topmovies set title=$1,releasedate=$2,posterpath=$3,overview=$4 where id=${id} returning *`;
-    const values = [req.body.title, req.body.releaseDate, req.body.posterPath, req.body.overview];
+    const values = [req.body.title, req.body.releasedate, req.body.posterpath, req.body.overview];
     client.query(sql, values)
         .then((data) => {
             const newsql = `select * from topmovies;`
-            console.log(newsql);
         client.query(newsql).then((data) => {
             res.status(200).json(data.rows);
         })
